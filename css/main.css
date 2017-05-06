@@ -1,0 +1,134 @@
+@font-face {
+  font-family: "MyNewFont";
+  src:url("../Fonts/digital.ttf");
+}
+
+* {
+  margin: 0px;
+  border: 0px;
+  text-align: center;
+}
+
+#centered {
+  width: 50%;
+  padding-top: 50%;
+  padding-left: 25%;
+  background-color: darkgray;
+  position: relative;
+  margin: 50px auto;
+  text-align: center;
+}
+
+#face {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 7.5%;
+}
+
+#green, #red, #yellow, #blue {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 7.5%;
+  display: none;
+}
+
+#buttonMap {
+  width: 50%;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 7.5%;
+}
+
+#greenButton {
+  width: 50%;
+  height: 37%;
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-top: 15%;
+}
+
+#redButton {
+  width: 50%;
+  height: 37%;
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+  padding-top: 15%;
+}
+
+#yellowButton {
+  width: 50%;
+  height: 37%;
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#blueButton {
+  width: 50%;
+  height: 37%;
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+}
+
+#newGameButton {
+  width: 6%;
+  height: 4%;
+  z-index: 4;
+  position: absolute;
+  top: 53%;
+  left: 53%;
+  right: 0;
+  bottom: 0;
+}
+
+#counter {
+  font-family: "MyNewFont";
+  width: 6%;
+  height: 4%;
+  z-index: 4;
+  position: absolute;
+  top: 52%;
+  left: 42%;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  color: white;
+  text-align: right;
+  font-weight: bold;
+  font-size: 2.5vw;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+}
