@@ -3,6 +3,7 @@
 <head>
 	<title>Simon</title>
 	<link rel="shortcut icon" href="img/MC.ico"> 
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -10,21 +11,40 @@
 
 	<div id="centered">
 		<!-- this is the game face -->
-		<img id="face" width="50%" alt="simon" src="img/face.png">
+		<img id="face" alt="simon" src="img/face.png">
+		<img id="lose" class="animated" src="img/you-lose.png">
 		<!-- these are the light up images -->
-		<img id="green" width="50%" alt="green" src="img/green.png">
-		<img id="red" width="50%" alt="red" src="img/red.png">
-		<img id="yellow" width="50%" alt="yellow" src="img/yellow.png">
-		<img id="blue" width="50%" alt="blue" src="img/blue.png">
+		<img id="green" alt="green" src="img/green.png">
+		<img id="red" alt="red" src="img/red.png">
+		<img id="yellow" alt="yellow" src="img/yellow.png">
+		<img id="blue" alt="blue" src="img/blue.png">
 		<!-- these are all of the buttons and counter of number correct -->
 		<div id="buttonMap">
-			<div id="greenButton" alt="Green Button"></div>
-			<div id="redButton" alt="Red Button"></div>
-			<div id="yellowButton" alt="Yellow Button"></div>
-			<div id="blueButton" alt="Blue Button"></div>
-			<div id="newGameButton" alt="New Game"></div>
-			<div id="counter" alt="Level Counter"></div>
+ 			<div id="counter" class="animated infinite" alt="Level Counter"></div>
+			<div id="svg-container-green">
+		    	<svg viewBox="0 0 100 100" preserveAspectRatio="none">
+	        		<polygon id="greenButton" points="55,100 6,100 11,73 15,60 35,35 55,20 77,11 97,8 97,60 70,70 55,100" />
+ 				</svg>
+			</div>
+			<div id="svg-container-red">
+		    	<svg viewBox="0 0 100 100" preserveAspectRatio="none">
+	        		<polygon id="redButton" points="45,100 93,100 89,73 85,60 65,35 45,20 23,11 3,8 3,60 30,70 45,100" />
+ 				</svg>
+			</div>
+			<div id="svg-container-yellow">
+		    	<svg viewBox="0 0 100 100" preserveAspectRatio="none">
+	        		<polygon id="yellowButton" points="55,0 6,0 11,27 15,40 35,65 55,80 77,89 97,92 97,40 70,30 55,0" />
+ 				</svg>
+			</div>
+			<div id="svg-container-blue">
+		    	<svg viewBox="0 0 100 100" preserveAspectRatio="none">
+	        		<polygon id="blueButton" points="45,0 93,0 89,27 85,40 65,65 45,80 23,89 3,92 3,40 30,30 45,0" />
+ 				</svg>
+			</div>
 		</div>
+		<svg id="circleBox">
+  			<circle id="newGameButton" />
+		</svg>
 	</div>
 	<script type="text/javascript" src="js/main.js"></script>
 </body>

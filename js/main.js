@@ -7,13 +7,15 @@ function Color(ID, audioFile) {
 }
 //variable determines the time between consecutive lights in
 //a sequence
-var lightTime = 1
-var colorArray, stillAlive, correct, sequenceNumber, lose,
-buttonPushed
+var lightTime = 1, limitTime = 2
+var colorArray, stillAlive, correct, sequenceNumber, lose, levelUp
 
 //this variable is an audio object that plays when the player
 //loses
 lose = new Audio("audio/lose.mp3")
+//this variable is an audio object that plays when the player
+//beats levels of multiples of 5
+levelUp = new Audio("audio/level-up.mp3")
 //these initialize all 4 color objects for the buttons on the 
 //game face
 var greenObject = new Color("green", "audio/green.mp3")
@@ -23,6 +25,7 @@ var blueObject = new Color("blue", "audio/blue.mp3")
 //this is a function that takes in a color and turns the light
 //on for the corresponding button on the game face
 function LightOn(color) {
+	document.getElementById(color.ID).style.display = "none"
 	//shows a picture on top of the game face that looks like
 	//the button only lit up
 	document.getElementById(color.ID).style.display = "unset"
@@ -32,6 +35,7 @@ function LightOn(color) {
 }
 //this function plays the sound for the corresponding color
 function SoundOn(color) {
+	color.audioFile.currentTime = 0
 	color.audioFile.play()
 }
 //this function turns off the light
@@ -59,26 +63,24 @@ function RandomColor() {
 //this function plays an array of color objects in order
 //this is used to play the sequence before you guess
 function Playback(array) {
-	buttonPushed = true
 	var i = 0;
 	LightOn(array[i])
 	SoundOn(array[i])
-	buttonPushed = true
 	setInterval(function() {
 	  i++;
 	  if (i < array.length) {
 	    LightOn(array[i])
 	    SoundOn(array[i])
-	    buttonPushed[i] = true
 	  }
-	}, lightTime*1000)
-	buttonPushed = false
-	setTimeout(TimeLimit, 4000+(array.length*1000),
+	}, 800)
+	setTimeout(TimeLimit, (limitTime*1000)+(array.length*lightTime*1000),
 	 (function(tempSequenceNumber){return tempSequenceNumber}(sequenceNumber)),
 	 (function(tempCorrect){return tempCorrect}(correct)))
 }
 //this returns all parts of the game back to the beginning
 function NewGame() {
+	document.getElementById("lose").classList.remove("bounceInUp")
+	document.getElementById("lose").style.display = "none"
 	//initially sets the colorArray to empty.  This will be filled
 	//with color objects
 	colorArray = []
@@ -97,12 +99,24 @@ function NewGame() {
 }
 //this function ends the game and plays the losing music
 function EndGame() {
+	document.getElementById("lose").classList.add("bounceInUp")
+	document.getElementById("lose").style.display = "unset"
 	stillAlive = false
+	lose.play()
 	LightOn(greenObject)
 	LightOn(redObject)
 	LightOn(yellowObject)
 	LightOn(blueObject)
-	lose.play()
+	var i = 0;
+	setInterval(function() {
+	  i++;
+	  if (i < 7) {
+	    LightOn(greenObject)
+		LightOn(redObject)
+		LightOn(yellowObject)
+		LightOn(blueObject)
+	  }
+	}, 1000)
 	return
 }
 function TimeLimit(myNumber1, myNumber2) {
@@ -116,9 +130,6 @@ function TimeLimit(myNumber1, myNumber2) {
 //this function lets the user determine if his choices of 
 //colors picked are correct with the array sequence of colors
 function Check(color) {
-	buttonPushed = true
-	// console.log(buttonPushed)
-	// console.log(sequenceNumber)
 	LightOn(color); SoundOn(color);
 	if (stillAlive) {
 		//if guess is correct
@@ -130,15 +141,26 @@ function Check(color) {
 				document.getElementById("counter").innerHTML = correct
 				sequenceNumber = 1
 				colorArray.push(RandomColor())
-				setTimeout(Playback, lightTime*1500, colorArray)
+				if(correct%5 === 0) {
+					setTimeout(function() {
+						levelUp.play();
+						document.getElementById("counter").classList.add("rubberBand")
+					}, 500)
+					setTimeout(function() {
+						Playback(colorArray);
+						document.getElementById("counter").classList.remove("rubberBand")
+					}, lightTime*4000)
+				}
+				else {
+					setTimeout(Playback, lightTime*1500, colorArray)
+				}
 				return
 			}
 			//not the last light in sequence? then we'll check the next
 			//sequence light in the sequence
 			else {
 				sequenceNumber++
-				buttonPushed = false
-				setTimeout(TimeLimit, 5000, 
+				setTimeout(TimeLimit, (limitTime*1000), 
 	 			(function(tempSequenceNumber){return tempSequenceNumber}(sequenceNumber)),
 	 			(function(tempCorrect){return tempCorrect}(correct)))
 				return

@@ -10,16 +10,17 @@
 }
 
 #centered {
-  width: 50%;
-  padding-top: 50%;
-  padding-left: 25%;
+  width: 75vw;
+  padding-top: 102vw;
+  padding-left: 25vw;
   background-color: darkgray;
   position: relative;
-  margin: 50px auto;
+  margin: auto;
   text-align: center;
 }
 
 #face {
+  width: 76vw;
   z-index: 0;
   position: absolute;
   top: 0;
@@ -28,10 +29,25 @@
   bottom: 0;
   text-align: center;
   margin: 0 auto;
-  padding-top: 7.5%;
+  padding-top: 11.5vw;
+}
+
+#lose {
+  width: 76vw;
+  z-index: 7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 11.5vw;
+  display: none;
 }
 
 #green, #red, #yellow, #blue {
+  width: 76vw;
   z-index: 1;
   position: absolute;
   top: 0;
@@ -40,12 +56,12 @@
   bottom: 0;
   text-align: center;
   margin: 0 auto;
-  padding-top: 7.5%;
+  padding-top: 11.5vw;
   display: none;
 }
 
 #buttonMap {
-  width: 50%;
+  width: 76vw;
   z-index: 2;
   position: absolute;
   top: 0;
@@ -54,81 +70,129 @@
   bottom: 0;
   text-align: center;
   margin: 0 auto;
-  padding-top: 7.5%;
+  padding-top: 11.5vw;
+}
+
+#svg-container-green {
+  position: absolute;
+  top: 10.75vw;
+  left: 0;
+  width: 38vw;
+  height: 38vw;
+}
+
+#svg-container-red {
+  position: absolute;
+  top: 10.75vw;
+  left: 38vw;
+  width: 38vw;
+  height: 38vw;
+}
+
+#svg-container-yellow {
+  position: absolute;
+  top: 50.5vw;
+  left: 0;
+  width: 38vw;
+  height: 38vw;
+}
+
+#svg-container-blue {
+  position: absolute;
+  top: 50.5vw;
+  left: 38vw;
+  width: 38vw;
+  height: 38vw;
 }
 
 #greenButton {
-  width: 50%;
-  height: 37%;
+  width: 76vw;
+  height: 37vw;
   z-index: 3;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  padding-top: 15%;
+  padding-top: 5vw;
+  fill: rgba(0,0,0,0);
+  stroke: rgba(0,0,0,0);
 }
 
 #redButton {
-  width: 50%;
-  height: 37%;
+  width: 76vw;
+  height: 37vw;
   z-index: 3;
   position: absolute;
   top: 0;
-  left: 50%;
+  left: 38vw;
   right: 0;
   bottom: 0;
-  padding-top: 15%;
+  padding-top: 5vw;
+  fill: rgba(0,0,0,0);
+  stroke: rgba(0,0,0,0);
 }
 
 #yellowButton {
-  width: 50%;
-  height: 37%;
+  width: 76vw;
+  height: 37vw;
   z-index: 3;
   position: absolute;
-  top: 50%;
+  top: 38vw;
   left: 0;
   right: 0;
   bottom: 0;
+  fill: rgba(0,0,0,0);
+  stroke: rgba(0,0,0,0);
 }
 
 #blueButton {
-  width: 50%;
-  height: 37%;
+  width: 76vw;
+  height: 37vw;
   z-index: 3;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 38vw;
+  left: 38vw;
   right: 0;
   bottom: 0;
+  fill: rgba(0,0,0,0);
+  stroke: rgba(0,0,0,0);
 }
 
-#newGameButton {
-  width: 6%;
-  height: 4%;
-  z-index: 4;
+#circleBox {
+  width: 8vw;
+  height: 8vw;
+  z-index: 5;
   position: absolute;
-  top: 53%;
-  left: 53%;
+  top: 52vw;
+  left: 50.5vw;
   right: 0;
   bottom: 0;
 }
 
 #counter {
   font-family: "MyNewFont";
-  width: 6%;
-  height: 4%;
+  width: 5vw;
+  height: 4vw;
   z-index: 4;
   position: absolute;
-  top: 52%;
-  left: 42%;
-  right: 0;
-  bottom: 0;
-  background-color: black;
-  color: white;
+  top: 53.25vw;
+  left: 28vw;
+  background-color: #6E7B62;
+  color: black;
   text-align: right;
   font-weight: bold;
-  font-size: 2.5vw;
-  padding-top: 0.5vh;
-  padding-bottom: 0.5vh;
+  font-size: 5.4vw;
+  padding: 0.2vw 0.2vw 0.6vw 0.2vw;
+  border: solid black 0.2vw;
+  border-radius: 0.3vw;
+}
+
+#newGameButton {
+  stroke: rgba(0,0,0,0);
+  stroke-width: 4;
+  fill: rgba(0,0,0,0);
+  cx: 4vw;
+  cy: 4vw;
+  r: 2.5vw;
 }
