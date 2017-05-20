@@ -184,4 +184,4 @@ document.getElementById("yellowButton").addEventListener("click", function() {Ch
 document.getElementById("blueButton").addEventListener("click", function() {Check(blueObject)})
 correct = 0
 document.getElementById("counter").innerHTML = correct
-document.getElementById("newGameButton").addEventListener("click", function() {NewGame()})
+document.getElementById("circleBox").addEventListener("click", function() {NewGame()})
